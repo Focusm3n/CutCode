@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware("r")->group(function (){
-    Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('home');
-});
+//Route::middleware("r")->group(function (){
+//    Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('home');
+//});
 
+Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('home');

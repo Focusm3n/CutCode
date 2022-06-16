@@ -1,16 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My program</title>
-    <link href="/css/app.css" rel="stylesheet">
-</head>
-<body>
-    <h1>My program</h1>
+@extends('layout.app')
+@section('title', 'Главная страница')
+@section('content')
 
-    <script src="/js/app.js"></script>
-</body>
-</html>
+@include('partials.header')
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10 mb-20">
+        @foreach($posts as $post)
+            @include('partials.posts.item', ["post" => $post])
+        @endforeach
+    </div>
+
+@endsection

@@ -33,7 +33,7 @@
                             </div>
 
 
-                            <p style="width: 90%" class="text-gray-600 text-lg text-center md:text-left ">Отличная статья</p>
+                            <p style="width: 90%" class="text-gray-600 text-lg text-center md:text-left ">Отличная статья! </p>
                         </div>
                         <!--  comment end-->
                     </div>

@@ -13,6 +13,8 @@ Route::get('/posts{id}', [\App\Http\Controllers\PostController::class, 'show'])-
 
 Route::middleware("auth")->group(function () {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+
+    Route::post('/posts/comment/{id}', [\App\Http\Controllers\PostController::class, 'comment'])->name('comment');
 });
 Route::middleware("guest")->group(function () {
     Route::get('/login', [\App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');

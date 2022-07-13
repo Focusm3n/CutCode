@@ -13,7 +13,7 @@ class CommentForm extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth("web")->check();
     }
 
     /**
@@ -24,7 +24,15 @@ class CommentForm extends FormRequest
     public function rules()
     {
         return [
-            //
+            'text' => ['required', 'string', 'min:3'],
+            'user_id' => ['required', 'exists:users,id']
         ];
+    }
+
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'user_id' => auth('web')->id()
+        ]);
     }
 }

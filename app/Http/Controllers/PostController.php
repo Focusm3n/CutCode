@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentForm;
+use App\Http\Requests\StoreCommentRequest;
+use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -20,20 +22,23 @@ class PostController extends Controller
     {
         $post = Post::with("comments.user")->findOrFail($id);
 
-        return view('posts.show', ["post" => $post,]);
-    }
-
-    public function comment($id, CommentForm $request)
-    {
-        $post = Post::findOrFail($id);
-
-        $post->comments()->create($request->validate($request->rules()));
-
-        return redirect(route('posts.show', $id));
+        return view('posts.show', ["post" => $post]);
     }
 
     public function showCreatePostForm()
     {
         return view('posts.create');
+    }
+
+    public function store(StorePostRequest $request)
+    {
+        $validated = $request->validated();
+        $post = Post::create([
+            'title' => $validated['title'],
+            'description' => $validated['description'],
+            'preview' => $validated['preview'],
+
+        ]);
+        return response()->json($post);
     }
 }

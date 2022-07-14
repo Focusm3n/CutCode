@@ -14,7 +14,7 @@ Route::get('/posts{id}', [\App\Http\Controllers\PostController::class, 'show'])-
 Route::middleware("auth")->group(function () {
     Route::get('/logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
-    Route::post('/posts/comment/{id}', [\App\Http\Controllers\PostController::class, 'comment'])->name('comment');
+    Route::post('/comments/store', [\App\Http\Controllers\CommentController::class, 'store'])->name('comment');
     Route::get('/posts/create', [\App\Http\Controllers\PostController::class, 'showCreatePostForm'])->name('posts.create');
     Route::post('/posts/store', [\App\Http\Controllers\PostController::class, 'store'])->name('posts.store');
 

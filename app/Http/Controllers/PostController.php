@@ -31,4 +31,9 @@ class PostController extends Controller
 
         return redirect(route('posts.show', $id));
     }
+
+    public function showCreatePostForm()
+    {
+        return view('posts.create');
+    }
 }

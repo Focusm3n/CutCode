@@ -28,11 +28,12 @@
                     <p class="text-red-500">{{ $message }}</p>
                     @enderror
 
+                    @auth()
                     <button type="submit" id="send"
                             class="font-bold py-2 px-4 w-full bg-purple-400 text-lg text-white shadow-md rounded-lg ">
                         Написать
                     </button>
-
+                    @endauth
                     <div id="task-comments" class="pt-4">
                         @foreach($post->comments as $comment)
                             <div

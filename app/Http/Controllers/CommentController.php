@@ -12,6 +12,7 @@ class CommentController extends Controller
     public function store(StoreCommentRequest $request)
     {
         $validated = $request->validated();
+
         $user_id = Auth::user()->getAuthIdentifier();
 //        dd($user_id);
 //        dd($validated['content']);

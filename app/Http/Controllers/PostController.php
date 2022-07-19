@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CommentForm;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
